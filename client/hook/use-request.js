@@ -9,7 +9,7 @@ export const useRequest = ({ url, method, body, onSuccess }) => {
       setErrors(null);
       const response = await axios[method](url, body);
 
-      //manage redirect after signup
+      //manage redirect after signin
       if (onSuccess) {
         onSuccess(response.data);
       }

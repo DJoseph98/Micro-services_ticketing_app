@@ -16,7 +16,8 @@ router.post(
 
     if (userExist) {
       //throw new BadRequestError('User already exist');
-      return res.status(400).send({ message: 'User already exist' });
+      throw new Error('test')
+      //return res.status(400).send({ message: 'User already exist' });
     }
 
     const user = User.build({ email, password });

@@ -1,4 +1,4 @@
-import axios from "axios"; //we don't use here the request hook created because hook is only for react component
+import { buildClient } from "../api/build-client";
 
 const HomePage = ({ currentUser }) => {
   console.log(currentUser);
@@ -6,27 +6,9 @@ const HomePage = ({ currentUser }) => {
 };
 
 //function will be executing on server side
-HomePage.getInitialProps = async ({ req }) => {
-  //check if windows is executed server side because HTTP URL request is different from server than client
-  if (typeof window === "undefined") {
-    const { data } = await axios.get(
-      // url schema to access from kubernete namespace: http://SERVICE_NAME.NAMESPACE.svc.cluster.local/URL_SERVICE
-      "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser", //url from kubernete namespace to access nginx-ingress service
-      {
-        /* headers: {
-          Host: "ticketing.dev", //telling to nginx-ingress that we will use ticketing.Dev domain
-        }, */
-        headers: req.headers,
-      }
-    );
-    return data;
-    //we are server side
-  } else {
-    //we are browser side
-    const { data } = await axios.get("/api/users/currentuser"); //basic url from browser
-    return data;
-  }
-  return {};
+HomePage.getInitialProps = async (context) => {
+  const { data } = await buildClient(context).get("/api/users/currentuser");
+  return data;
 };
 
 export default HomePage;
