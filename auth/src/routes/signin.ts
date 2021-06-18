@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import { signinSchema } from '../validations/req-user-validation';
-import { validateRequest } from '../middleware/validate-request';
+import { validateRequest } from '@djticketsudemy/common';
 import { User } from '../models/user';
-import { BadRequestError } from '../error/bad-request-error';
+import { BadRequestError } from '@djticketsudemy/common';
 import jwt from 'jsonwebtoken';
 import { Password } from '../utils/password';
 

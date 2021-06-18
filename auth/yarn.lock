@@ -294,6 +294,19 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@djticketsudemy/common@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@djticketsudemy/common/-/common-1.0.8.tgz#2ab157077c19bce2a8cf2ca5f5adbe16d58db176"
+  integrity sha512-PdiPcX2/SXfXoBqO5+cnv+VasAFTXNAq3TyddQbgsxX5G2/3VL8pTqQwlfWgGDs7lRf0WJyNC9uadrVuTrfMPg==
+  dependencies:
+    "@types/cookie-session" "^2.0.42"
+    "@types/express" "^4.17.12"
+    "@types/jsonwebtoken" "^8.5.2"
+    cookie-session "^1.4.0"
+    express "^4.17.1"
+    joi "^17.4.0"
+    jsonwebtoken "^8.5.1"
+
 "@hapi/hoek@^9.0.0":
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.0.tgz#f3933a44e365864f4dad5db94158106d511e8131"
@@ -626,6 +639,16 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/express@^4.17.12":
+  version "4.17.12"
+  resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.12.tgz#4bc1bf3cd0cfe6d3f6f2853648b40db7d54de350"
+  integrity sha512-pTYas6FrP15B1Oa0bkN5tQMNqOcVXa9j4FTFtO8DWI9kppKib+6NJtfTOOLcwxuuYvcX2+dVG6et1SxW/Kc17Q==
+  dependencies:
+    "@types/body-parser" "*"
+    "@types/express-serve-static-core" "^4.17.18"
+    "@types/qs" "*"
+    "@types/serve-static" "*"
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.5.tgz#21ffba0d98da4350db64891f92a9e5db3cdb4e15"
@@ -664,6 +687,13 @@
   version "8.5.1"
   resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz#56958cb2d80f6d74352bd2e501a018e2506a8a84"
   integrity sha512-rNAPdomlIUX0i0cg2+I+Q1wOUr531zHBQ+cV/28PJ39bSPKjahatZZ2LMuhiguETkCgLVzfruw/ZvNMNkKoSzw==
+  dependencies:
+    "@types/node" "*"
+
+"@types/jsonwebtoken@^8.5.2":
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.2.tgz#eb71c717b3b8681bb85fbd2950c9c4c5d4506748"
+  integrity sha512-X8BOCkp+WJVNYCYIBugREtVZa4Y09Or9HDx6xqRZem5F8jJV8FuJgNessXyMuv9+U8pjnvdezASwU28uw+1scw==
   dependencies:
     "@types/node" "*"
 
