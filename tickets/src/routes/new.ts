@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import { requireAuth, validateRequest } from "@djticketsudemy/common";
 import { createTicketSchema } from "../validations/req-ticket-validation";
 import { Ticket } from "../models/ticket";
-
+import { TicketCreatedPublisher } from "../events/ticket-created-publisher";
 const router = express.Router();
 
 router.post(
@@ -19,6 +19,13 @@ router.post(
     });
 
     await ticket.save();
+
+    /*  new TicketCreatedPublisher(client).publish({
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,
+      userId: ticket.userId,
+    }); */
 
     res.status(201).send(ticket);
   }
