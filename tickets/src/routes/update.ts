@@ -7,7 +7,8 @@ import {
 } from "@djticketsudemy/common";
 import { createTicketSchema } from "../validations/req-ticket-validation";
 import { Ticket } from "../models/ticket";
-
+import { TicketUpdatedPublisher } from "../events/ticket-updated-publisher";
+import { natsWrapper } from "../nats-wrapper";
 const router = express.Router();
 
 router.put(
@@ -28,7 +29,12 @@ router.put(
     ticket.set(req.body);
 
     await ticket.save();
-
+    new TicketUpdatedPublisher(natsWrapper.client).publish({
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,
+      userId: ticket.userId,
+    });
     res.send(ticket);
   }
 );

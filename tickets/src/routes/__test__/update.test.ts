@@ -1,6 +1,7 @@
 import request from "supertest";
 import { app } from "../../app";
 import mongoose from "mongoose";
+import { natsWrapper } from "../../nats-wrapper";
 
 const id = mongoose.Types.ObjectId().toHexString();
 const ticket = { title: "azertyxsqu", price: 123 };
@@ -87,4 +88,22 @@ it("should update ticket if ticket found", async () => {
 
   expect(retrievedTicket.body.title).toEqual("testtesttest");
   expect(retrievedTicket.body.price).toEqual(4000);
+});
+
+it("should submit event on update", async () => {
+  const cookie = global.signin();
+
+  const newTicket = await request(app)
+    .post("/api/tickets")
+    .set("Cookie", cookie)
+    .send(ticket)
+    .expect(201);
+
+  await request(app)
+    .put(`/api/tickets/${newTicket.body.id}`)
+    .set("Cookie", cookie)
+    .send({ title: "testtesttest", price: 4000 })
+    .expect(200);
+
+  expect(natsWrapper.client.publish).toHaveBeenCalled(); //mock function
 });

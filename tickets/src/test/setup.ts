@@ -17,10 +17,13 @@ declare global {
   }
 }
 
+jest.mock("../nats-wrapper.ts"); //create fake instance of nats to fake connection
+
 let mongo: any;
 
 //genere fake mongodb Uri for test and setup mongodb with this uri
 beforeAll(async () => {
+  jest.clearAllMocks();
   process.env.JWT_KEY = "testtest";
   mongo = new MongoMemoryServer();
   const mongoUri = await mongo.getUri();
