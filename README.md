@@ -2,7 +2,7 @@
 
 Basic ticketing app using micro-services architecture.
 
-Skaffold is used to manage the local deployment of the app (Kubernetes clusters of each services, event bus,..)
+Skaffold is used to manage the local deployment of the app (Kubernete clusters of each services, event bus,..)
 
 Technologies used :
 
