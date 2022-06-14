@@ -8,4 +8,4 @@ To re-use the codebase of the event bus, I created a personnal npm package (@djt
 
 Technologies used :
 
-NATS, NodeJS, MongoDB, Kubernete, Docker, Skaffold, Jest, TypeScript, Ingress
+NATS-streaming, NodeJS, MongoDB, Kubernete, Docker, Skaffold, Jest, TypeScript, Ingress
